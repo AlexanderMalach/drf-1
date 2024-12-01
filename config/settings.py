@@ -1,15 +1,13 @@
 import os
 from pathlib import Path
-
+from decouple import config
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = "django-insecure-7==+1d=&txtkwy&%x&5t9+b8u0ube&po(!q4zya7zm*#xfcc!*"
-
-
-DEBUG = True
+SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG", False) == "True"
 
 ALLOWED_HOSTS = []
 
@@ -65,11 +63,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "drf",
-        "USER": "postgres",
-        "PASSWORD": "1991",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "NAME": config("NAME"),
+        "USER": config("USER"),
+        "PASSWORD": config("PASSWORD"),
+        "HOST": config("HOST"),
+        "PORT": config("PORT"),
     }
 }
 
