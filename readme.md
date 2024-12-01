@@ -11,7 +11,6 @@
     ```sh
     python -m venv venv
     venv\Scripts\activate
-    poetry shell
     ```
 
 ### Запуск проекта:
